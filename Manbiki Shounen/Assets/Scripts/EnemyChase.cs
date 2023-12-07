@@ -9,6 +9,8 @@ public class EnemyChase : MonoBehaviour
 
     private Transform target;
 
+    public bool isChasing = true;
+
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -16,7 +18,7 @@ public class EnemyChase : MonoBehaviour
 
     void Update()
     {
-        if(Vector2.Distance(transform.position, target.position) > stoppingDistance)
+        if (isChasing = true) 
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
