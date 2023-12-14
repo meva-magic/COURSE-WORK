@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class FieldOfView : MonoBehaviour
 {
     IdleState idleState;
     public float RotationSpeed;
     public float Distance;
-    public LineRenderer lineOfSight;
+    //public LineRenderer lineOfSight;
 
     public void Start()
     {
@@ -25,20 +25,26 @@ public class Enemy : MonoBehaviour
         if (hitInfo.collider != null)
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            lineOfSight.SetPosition(1, hitInfo.point);
+            //lineOfSight.SetPosition(1, hitInfo.point);
             
             if (hitInfo.collider.CompareTag("Player"))
             {
                 IdleState.canSeePlayer = true;
+            }
+
+            else
+            {
+                
             }
         }
 
         else
         {
             Debug.DrawLine(transform.position, transform.position + transform.right * Distance, Color.green);
-            lineOfSight.SetPosition(1, transform.position + transform.right * Distance);
+            IdleState.canSeePlayer = false;
+            //lineOfSight.SetPosition(1, transform.position + transform.right * Distance);
         }
 
-        lineOfSight.SetPosition(0, transform.position);
+        //lineOfSight.SetPosition(0, transform.position);
     }
 }

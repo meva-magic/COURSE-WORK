@@ -486,9 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2e2c0c275e880469543b1e5c7e9bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 100
+  RotationSpeed: 50
   Distance: 50
-  lineOfSight: {fileID: 0}
 --- !u!58 &420346526
 CircleCollider2D:
   m_ObjectHideFlags: 0
