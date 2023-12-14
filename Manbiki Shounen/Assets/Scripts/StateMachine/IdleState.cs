@@ -4,7 +4,7 @@ using UnityEngine;
 
 internal class IdleState : State
 {
-    public bool canSeePlayer;
+    static public bool canSeePlayer;
     public ChaseState chaseState;
 
     public override State RunCurrentState()

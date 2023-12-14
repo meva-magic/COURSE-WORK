@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    internal State currentState;
+    [SerializeField] internal State currentState;
     internal IdleState idleState;
-
-    private void Start()
-    {
-        currentState = idleState;
-    }
     
     private void Update()
     {
