@@ -27,5 +27,11 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+
+        if (collision.gameObject.CompareTag("Thing"))
+        {
+            //Destroy(colission.gameObject);
+        }
+
     }
 }

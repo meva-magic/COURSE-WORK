@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class LevelGeneration : MonoBehaviour
+public class SpawnThing : MonoBehaviour
 {
     public GameObject[] Things;
+    private int value = 1;
 
     private void Start()
     {
