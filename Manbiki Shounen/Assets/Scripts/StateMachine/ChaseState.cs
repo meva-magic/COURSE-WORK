@@ -4,20 +4,20 @@ using UnityEngine;
 
 internal class ChaseState : State
 {
-    public bool isInAttackRange;
+    public float Speed;
+    private Transform Player;
+    public GameObject Enemy;
 
-    public AttackState attackState;
 
     public override State RunCurrentState()
     {
-        if (isInAttackRange)
-        {
-            return attackState;
-        }
+        Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, Player.position, Speed * Time.deltaTime);
+        return this;
+    }
 
-        else
-        {
-            return this;
-        }
+    private void Start()
+    {
+        Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }

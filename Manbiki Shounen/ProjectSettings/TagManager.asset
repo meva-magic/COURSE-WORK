@@ -7,6 +7,8 @@ TagManager:
   - Idle State
   - Chase State
   - Attack State
+  - Patrol
+  - Enemy
   layers:
   - Default
   - TransparentFX
