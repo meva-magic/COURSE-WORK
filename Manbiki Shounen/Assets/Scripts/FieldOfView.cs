@@ -4,47 +4,83 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    IdleState idleState;
+    public float Radius = 5;
+    public float Angle = 40f;
     public float RotationSpeed;
-    public float Distance;
-    //public LineRenderer lineOfSight;
 
-    public void Start()
+    public LayerMask PlayerLayer;
+    public LayerMask WallLayer;
+
+    public GameObject PlayerRef;
+    IdleState idleState;
+
+    private void Start()
     {
-        Physics2D.queriesStartInColliders = false;
-
+        PlayerRef = GameObject.FindGameObjectWithTag("Player");
         idleState = GameObject.FindGameObjectWithTag("Idle State").GetComponent<IdleState>();
+
+        StartCoroutine(FieldCheck());
     }
 
-    private void Update()
+    private void Update(){transform.Rotate(Vector3.forward * RotationSpeed * Time.deltaTime);}
+
+    private IEnumerator FieldCheck()
     {
-        transform.Rotate(Vector3.forward * RotationSpeed * Time.deltaTime);
+        WaitForSeconds wait = new WaitForSeconds(0.5f);
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, Distance);
-
-        if (hitInfo.collider != null)
+        while(true)
         {
-            Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            //lineOfSight.SetPosition(1, hitInfo.point);
-            
-            if (hitInfo.collider.CompareTag("Player"))
-            {
-                IdleState.canSeePlayer = true;
-            }
+            yield return wait;
+            Field();
+        }
+    }
 
-            else
+    private void Field()
+    {
+        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, Radius, PlayerLayer);
+
+        if (rangeCheck.Length > 0)
+        {
+            Transform target = rangeCheck[0].transform;
+            Vector2 directionToTarget = (target.position - transform.position).normalized;
+
+            if (Vector2.Angle(transform.up, directionToTarget) < Angle / 2)
             {
-                
+                float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+                if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, WallLayer))
+                {
+                    IdleState.canSeePlayer = true;
+                }
+
+                else{IdleState.canSeePlayer = false;}
             }
         }
+    }
 
-        else
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, Radius);
+
+        Vector3 Angle01 = DirectionFromAngle(-transform.eulerAngles.z, -Angle / 2);
+        Vector3 Angle02 = DirectionFromAngle(-transform.eulerAngles.z, Angle / 2);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, transform.position + Angle01 * Radius);
+        Gizmos.DrawLine(transform.position, transform.position + Angle02 * Radius);
+
+        if (IdleState.canSeePlayer)
         {
-            Debug.DrawLine(transform.position, transform.position + transform.right * Distance, Color.green);
-            IdleState.canSeePlayer = false;
-            //lineOfSight.SetPosition(1, transform.position + transform.right * Distance);
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, PlayerRef.transform.position);
         }
+    }
 
-        //lineOfSight.SetPosition(0, transform.position);
+    private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
+    {
+        angleInDegrees += eulerY;
+
+        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }

@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 121659176}
   - component: {fileID: 121659175}
   - component: {fileID: 121659177}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f495ebbd92e9d2f48af5a4a51a32381e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 6
+  Speed: 2
   rb: {fileID: 121659175}
 --- !u!58 &121659177
 CircleCollider2D:
@@ -360,11 +360,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420346521}
-  - component: {fileID: 420346520}
-  - component: {fileID: 420346522}
   - component: {fileID: 420346524}
-  - component: {fileID: 420346525}
+  - component: {fileID: 420346528}
+  - component: {fileID: 420346522}
   - component: {fileID: 420346526}
+  - component: {fileID: 420346520}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -474,20 +474,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 1074814}
---- !u!114 &420346525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 420346518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2e2c0c275e880469543b1e5c7e9bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: 50
-  Distance: 50
 --- !u!58 &420346526
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -504,6 +490,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &420346528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420346518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf526501f3993c74aa57b81aa95c7944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 5
+  Angle: 40
+  RotationSpeed: 42
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  WallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  PlayerRef: {fileID: 121659172}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +815,7 @@ GameObject:
   - component: {fileID: 1488674890}
   - component: {fileID: 1488674889}
   - component: {fileID: 1488674891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
