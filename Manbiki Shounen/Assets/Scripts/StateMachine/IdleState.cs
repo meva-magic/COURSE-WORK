@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 internal class IdleState : State
 {
-    static public bool canSeePlayer;
     public ChaseState chaseState;
-    public GameObject Enemy;
+    static public bool canSeePlayer;
+
     public float Speed;
     public float StartWaitTime;
 
-    private float WaitTime;
+    private float waitTime;
     private int randomSpot;
 
+    public Transform Enemy;
     public Transform[] MoveSpots;
+
 
     public override State RunCurrentState()
     {
@@ -25,17 +27,17 @@ internal class IdleState : State
 
         else
         {
-            Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, MoveSpots[randomSpot].position, Speed * Time.deltaTime);
+            Enemy.position = Vector2.MoveTowards(Enemy.position, MoveSpots[randomSpot].position, Speed * Time.deltaTime);
 
             if(Vector2.Distance(Enemy.transform.position, MoveSpots[randomSpot].position) < 0.2f)
             {
-                if (WaitTime <= 0)
+                if (waitTime <= 0)
                 {
                     randomSpot = Random.Range(0, MoveSpots.Length);
-                    WaitTime = StartWaitTime;
+                    waitTime = StartWaitTime;
                 }
 
-                else{WaitTime -= Time.deltaTime;}
+                else{waitTime -= Time.deltaTime;}
             }
             return this;
         }
@@ -43,6 +45,6 @@ internal class IdleState : State
 
     private void Start()
     {
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        Enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
     }
 }

@@ -7,6 +7,7 @@ public class StateManager : MonoBehaviour
     [SerializeField] internal State currentState;
     internal IdleState idleState;
     
+    
     private void Update()
     {
         RunStateMachine();
@@ -14,7 +15,7 @@ public class StateManager : MonoBehaviour
 
     private void RunStateMachine()
     {
-        State nextState = currentState?.RunCurrentState(); //if not null
+        State nextState = currentState?.RunCurrentState();
 
         if (nextState != null)
         {

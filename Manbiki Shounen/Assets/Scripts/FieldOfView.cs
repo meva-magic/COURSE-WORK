@@ -11,8 +11,9 @@ public class FieldOfView : MonoBehaviour
     public LayerMask PlayerLayer;
     public LayerMask WallLayer;
 
-    public GameObject PlayerRef;
     IdleState idleState;
+    [SerializeField] private GameObject PlayerRef;
+
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class FieldOfView : MonoBehaviour
             Field();
         }
     }
+
 
     private void Field()
     {
