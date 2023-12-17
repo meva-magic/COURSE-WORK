@@ -11,13 +11,13 @@ public class PointManager : MonoBehaviour
 
     void Start()
     {
-        ScoreText.text = "<SCORE " + Score + ">";
+        ScoreText.text = "<SCORE: " + Score + ">";
         thing = GameObject.FindGameObjectWithTag("Thing").GetComponent<Thing>();
     }
 
     public void UpdateScore(int points)
     {
         Score += 1;
-        ScoreText.text = "<SCORE " + Score + ">";
+        ScoreText.text = "<SCORE: " + Score + ">";
     }
 }

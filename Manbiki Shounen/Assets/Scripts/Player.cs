@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
     public float Speed;
     private Vector2 moveVelocity;
     [SerializeField] private Rigidbody2D rb;
+    CamShake camShake;
+    private CinemachineImpulseSource impulseSource;
 
 
     private void Update()
@@ -26,7 +29,9 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Time.timeScale = 0;
+            camShake.CameraShake(impulseSource);
+
+            //Time.timeScale = 0;
         }
     }
 }
