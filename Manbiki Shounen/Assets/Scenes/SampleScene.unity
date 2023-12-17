@@ -996,7 +996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232196507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5454442, y: -0.004736092, z: -0.042677093}
+  m_LocalPosition: {x: 2.06, y: -0.004736092, z: -0.042677093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1127,6 +1127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542222234}
   - component: {fileID: 1542222235}
+  - component: {fileID: 1542222236}
   m_Layer: 0
   m_Name: SpawnPoint (2)
   m_TagString: Untagged
@@ -1161,8 +1162,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62025bef28ed97245a9c46980e17d663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1542222236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542222233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51fef967d7bb144f9ea8f31bfadc750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   Things:
-  - {fileID: 7207584834043005772, guid: 6be3410ad3506724b9b3abcfe80b60a4, type: 3}
+  - {fileID: 8926150265564380964, guid: fcc766dc034d83945809c594b612435e, type: 3}
 --- !u!1 &1596924816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,11 +1217,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1596924816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62025bef28ed97245a9c46980e17d663, type: 3}
+  m_Script: {fileID: 11500000, guid: e51fef967d7bb144f9ea8f31bfadc750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Things:
-  - {fileID: 7207584834043005772, guid: 6be3410ad3506724b9b3abcfe80b60a4, type: 3}
+  - {fileID: 8926150265564380964, guid: fcc766dc034d83945809c594b612435e, type: 3}
 --- !u!1 &1645050923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2073299957}
   - component: {fileID: 2073299958}
+  - component: {fileID: 2073299959}
   m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
@@ -1551,8 +1565,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62025bef28ed97245a9c46980e17d663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2073299959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073299956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51fef967d7bb144f9ea8f31bfadc750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   Things:
-  - {fileID: 7207584834043005772, guid: 6be3410ad3506724b9b3abcfe80b60a4, type: 3}
+  - {fileID: 8926150265564380964, guid: fcc766dc034d83945809c594b612435e, type: 3}
 --- !u!1 &2090292749
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thing : MonoBehaviour
+public class Spawn : MonoBehaviour
 {
     public GameObject[] Things;
 
@@ -12,11 +12,5 @@ public class Thing : MonoBehaviour
         Instantiate(Things[rand], transform.position, Quaternion.identity);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-    }
+   
 }
