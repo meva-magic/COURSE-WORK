@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     private CinemachineImpulseSource impulseSource;
 
 
+    private void Start()
+    {
+        camShake = GameObject.Find("CamShake").GetComponent<CamShake>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
     private void Update()
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -30,7 +35,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             camShake.CameraShake(impulseSource);
-
             //Time.timeScale = 0;
         }
     }
