@@ -11,6 +11,4 @@ public class Spawn : MonoBehaviour
         int rand = Random.Range(0, Things.Length);
         Instantiate(Things[rand], transform.position, Quaternion.identity);
     }
-
-   
 }
